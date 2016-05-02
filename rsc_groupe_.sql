@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Sam 30 Avril 2016 à 21:55
+-- Généré le :  Lun 02 Mai 2016 à 12:37
 -- Version du serveur :  5.6.20-log
 -- Version de PHP :  5.4.31
 
@@ -75,6 +75,18 @@ CREATE TABLE IF NOT EXISTS `formulaire` (
   `nomImage` varchar(50) COLLATE utf8_bin NOT NULL,
   `lienImage` varchar(50) COLLATE utf8_bin NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `historique`
+--
+
+CREATE TABLE IF NOT EXISTS `historique` (
+  `idProduit` int(10) NOT NULL,
+  `dateAchat` date NOT NULL,
+  `idAcheteur` int(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -151,6 +163,12 @@ ALTER TABLE `enchere`
 --
 ALTER TABLE `formulaire`
  ADD PRIMARY KEY (`idFormulaire`), ADD UNIQUE KEY `idFormulaire` (`idFormulaire`);
+
+--
+-- Index pour la table `historique`
+--
+ALTER TABLE `historique`
+ ADD UNIQUE KEY `idProduit` (`idProduit`);
 
 --
 -- Index pour la table `message`
